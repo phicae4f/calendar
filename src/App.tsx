@@ -21,8 +21,8 @@ const HomeRedirect = () => {
 function App() {
   return (
     <Provider store={store}>
-      <LayoutComponent>
         <BrowserRouter>
+      <LayoutComponent>
           <Routes>
             <Route path="/" element={<HomeRedirect />} />
             <Route path="/login" element={<Login />} />
@@ -35,8 +35,8 @@ function App() {
               }
             />
           </Routes>
-        </BrowserRouter>
       </LayoutComponent>
+        </BrowserRouter>
     </Provider>
   );
 }
