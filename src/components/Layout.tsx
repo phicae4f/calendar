@@ -14,6 +14,7 @@ export const LayoutComponent = ({ children }: LayoutComponentProps) => {
   const isAuthenticated = useSelector(
     (state: RootState) => state.auth.isAuthenticated
   );
+  const user = useSelector((state: RootState) => state.auth.user?.username)
   const dispatch = useDispatch()
 
   return (
@@ -23,7 +24,7 @@ export const LayoutComponent = ({ children }: LayoutComponentProps) => {
         {isAuthenticated ? (
           <ul className="header__list">
             <li className="header__item">
-              <span>Username</span>
+              <span>{user}</span>
             </li>
             <li className="header__item">
               <Link to="/login" onClick={() => dispatch(logout())}>Log out</Link>

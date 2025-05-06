@@ -1,11 +1,14 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import "./App.css";
-import { Provider, useSelector } from "react-redux";
+import { Provider, useDispatch, useSelector } from "react-redux";
 import { RootState, store } from "./store/store";
 import { Login } from "./pages/Login";
 import { Event } from "./pages/Event";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { LayoutComponent } from "./components/Layout";
+import { useEffect } from "react";
+import { initializeAuth } from "./store/auth/authSlice";
+
 
 const HomeRedirect = () => {
   const isAuthenticated = useSelector(
@@ -18,10 +21,21 @@ const HomeRedirect = () => {
   );
 };
 
+const AppInitializer = () => {
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(initializeAuth())
+  }, [dispatch])
+
+  return null
+}
+
+
 function App() {
   return (
     <Provider store={store}>
         <BrowserRouter>
+        <AppInitializer />
       <LayoutComponent>
           <Routes>
             <Route path="/" element={<HomeRedirect />} />

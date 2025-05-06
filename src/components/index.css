@@ -51,6 +51,29 @@
   min-height: 600px;
 }
 
+.descForm {
+  width: 100%;
+  padding: 150px 20px 90px 40px;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 65px;
+  background-color: #292828;
+  background: 
+    linear-gradient(
+      135deg, 
+      rgba(255,255,255,0.1) 0%, 
+      rgba(0,0,0,0.7) 100%
+    ),
+    url('/img/space.jpg') center/cover no-repeat;
+  color: rgba(218, 214, 214, 0.822);
+  backdrop-filter: blur(2px);
+  border-radius: 10px;
+  min-height: 600px;
+}
+
 .loginForm:hover {
   background: 
     linear-gradient(
@@ -61,11 +84,28 @@
     url('/img/dark.jpg') center/cover no-repeat;
 }
 
+.descForm:hover {
+  background: 
+  linear-gradient(
+    135deg, 
+    rgba(255,255,255,0.2) 0%, 
+    rgba(0,0,0,0.8) 100%
+  ),
+  url('/img/space.jpg') center/cover no-repeat;
+}
+
 .loginFormTitle {
   margin: 0 0 30px;
   font-family: "Rowdies", sans-serif;
   color: rgb(230, 228, 228);
   font-size: 50px;
+}
+
+.descFormTitle {
+  margin: 0;
+  font-family: "Rowdies", sans-serif;
+  color: rgb(230, 228, 228);
+  font-size: 60px;
 }
 
 .customInput {
@@ -104,9 +144,56 @@
   font-size: 20px;
 }
 
+.descFormBtn {
+  width: 270px;
+  padding: 12px 20px;
+  border-radius: 10px;
+  border: none;
+  background-color: #4e4e4ed2;
+  box-shadow: 0 0 20px #000000;
+  color: white;
+  margin-top: 20px;
+  font-size: 20px;
+}
+
 .loginFormBtn:hover {
   color: #d1d1d1d2;
   background-color: #1b1b1bd2;
+}
+
+.descFormBtn:hover {
+  color: #d1d1d1d2;
+  background-color: #1b1b1bd2;
+}
+
+.ant-modal-close-x svg {
+  color: rgb(0, 0, 0);
+  width: 30px;
+  height: 30px;
+  background-color: #ffffff6c;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
+.ant-modal-close-x svg:hover {
+  background-color: transparent;
+  color: white;
+  transition: 0.3s;
+  border: none;
+}
+
+.ant-btn {
+  width: 270px;
+  height: 60px;
+  padding: 12px 20px;
+  border-radius: 10px;
+  border: none;
+  background-color: #4e4e4ed2;
+  box-shadow: 0 0 20px #000000;
+  color: white;
+  margin-top: 20px;
+  font-size: 20px;
+  margin: 50px 0;
 }
 
 .footer {
@@ -115,4 +202,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.eventTitle {
+  color: white;
+  margin-bottom: 30px;
 }

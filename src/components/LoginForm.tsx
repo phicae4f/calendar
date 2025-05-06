@@ -6,6 +6,7 @@ import axios from "axios";
 import { IUser } from "../models/IUSer";
 import { RootState } from "../store/store";
 import { useNavigate } from "react-router-dom";
+import { useCallback, useEffect } from "react";
 
 type FormFields = {
   login: string;
@@ -25,7 +26,8 @@ export const LoginForm = () => {
     formState: { errors },
   } = useForm<FormFields>();
 
-  const onSubmit = handleSubmit(async (data) => {
+
+  const onSubmit = useCallback(async (data: FormFields) => {
     try {
       dispatch(setLoading(true));
       dispatch(setError(""));
@@ -39,7 +41,8 @@ export const LoginForm = () => {
       );
 
       if (foundUser) {
-        dispatch(login(foundUser));
+        const fakeToken = `jwt-token-${Date.now()}`
+        dispatch(login({user: foundUser, token: fakeToken}));
         navigate("/event");
       } else {
         dispatch(setError("Invalid credentials"));
@@ -50,10 +53,11 @@ export const LoginForm = () => {
     } finally {
       dispatch(setLoading(false));
     }
-  });
+  }, [dispatch, navigate]);
+
 
   return (
-    <form className="loginForm" onSubmit={onSubmit}>
+    <form className="loginForm" onSubmit={handleSubmit(onSubmit)}>
       <h1 className="loginFormTitle">Sign In</h1>
       <div className="customInput">
         <label className="customInputLabel" htmlFor="login">
