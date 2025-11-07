@@ -1,4 +1,4 @@
-import { Button, Card, Layout, List, Modal, Row } from "antd";
+import { Button, Layout,  Modal, Row } from "antd";
 import { FC, useCallback, useEffect, useState } from "react";
 import { EventCalendar } from "../components/EventCalendar";
 import { EventForm } from "../components/EventForm";
@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../store/store";
 import { addEvent, setGuests } from "../store/event/eventSlice";
 import axios from "axios";
-import { IUser } from "../models/IUSer";
+import { IUser } from "../models/IUser";
 import { IEvent } from "../models/IEvent";
 
 

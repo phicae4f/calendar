@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IUser } from "../../models/IUSer";
 import { IEvent } from "../../models/IEvent";
+import { IUser } from "../../models/IUser";
 
 
 const loadEvents = (): IEvent[] => {
@@ -8,6 +8,7 @@ const loadEvents = (): IEvent[] => {
         const saved = localStorage.getItem("events")
         return saved ? JSON.parse(saved) : []
     } catch (error) {
+        console.log(error)
         return []
     }
 }

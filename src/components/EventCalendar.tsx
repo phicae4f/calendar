@@ -1,8 +1,8 @@
-import { Badge, Calendar } from "antd"
+import { Calendar } from "antd"
 import { FC } from "react"
 import { IEvent } from "../models/IEvent"
-import { Moment } from "moment"
 import { formatDate } from "../utils/date"
+import { Dayjs } from "dayjs"
 
 
 interface EventCalendarProps {
@@ -10,7 +10,7 @@ interface EventCalendarProps {
 }
 
 export const EventCalendar: FC<EventCalendarProps> = (props) => {
-    const dateCellRender = (value: Moment) => {
+    const dateCellRender = (value: Dayjs) => {
         const formatedDate = formatDate(value.toDate())
         const currentDayEvents = props.events.filter(ev => ev.date === formatedDate)
         return (

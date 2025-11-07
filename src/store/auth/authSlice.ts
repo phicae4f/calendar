@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IUser, NullableUser } from "../../models/IUSer";
+import { IUser, NullableUser } from "../../models/IUser";
 
 interface AuthState {
   isAuthenticated: boolean;
@@ -21,6 +21,7 @@ const loadAuthState = (): Partial<AuthState> => {
             user: user ? JSON.parse(user) : null,
         }
     } catch (error) {
+      console.log(error)
         return {
             isAuthenticated: false,
             error: "",

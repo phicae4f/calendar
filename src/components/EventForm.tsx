@@ -1,7 +1,7 @@
 import { DatePicker, Select } from "antd";
 import { FC, useEffect } from "react"
 import { useForm } from "react-hook-form";
-import { IUser } from "../models/IUSer";
+import { IUser } from "../models/IUser";
 import { Moment } from "moment";
 import { formatDate } from "../utils/date";
 import { useSelector } from "react-redux";

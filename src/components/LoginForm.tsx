@@ -3,10 +3,10 @@ import "./index.css";
 import { useDispatch, useSelector } from "react-redux";
 import { login, setLoading, setError } from "../store/auth/authSlice";
 import axios from "axios";
-import { IUser } from "../models/IUSer";
+import { IUser } from "../models/IUser";
 import { RootState } from "../store/store";
 import { useNavigate } from "react-router-dom";
-import { useCallback, useEffect } from "react";
+import { useCallback } from "react";
 
 type FormFields = {
   login: string;
